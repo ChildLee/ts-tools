@@ -1,1 +1,30 @@
-{}
+{
+  "rules": {
+    "curly": true,
+    "no-any": true,
+    "no-eval": true,
+    "no-empty": true,
+    "no-bitwise": true,
+    "class-name": true,
+    "deprecation": true,
+    "no-reference": true,
+    "prefer-for-of": true,
+    "await-promise": true,
+    "label-position": true,
+    "no-var-requires": true,
+    "no-duplicate-super": true,
+    "ban-comma-operator": true,
+    "only-arrow-functions": [
+      true,
+      "allow-declarations"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ]
+  }
+}
