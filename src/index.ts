@@ -1,3 +1,5 @@
-function a() {
-    console.log(1)
+import DateUtil from './DateUtil'
+
+export {
+    DateUtil
 }

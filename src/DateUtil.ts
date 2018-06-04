@@ -1,4 +1,4 @@
-class Date {
+class DateUtil {
     private date: Date
 
     constructor(param?: string) {
@@ -48,4 +48,4 @@ class Date {
     }
 }
 
-export default Date
+export default DateUtil

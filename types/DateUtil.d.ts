@@ -1,5 +1,5 @@
-interface Date {
+interface DateUtil {
 
 }
 
-export default Date
+export default DateUtil

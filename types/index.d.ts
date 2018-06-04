@@ -1,7 +1,4 @@
-export as namespace app
+import DateUtil from './DateUtil'
 
-export = app
+export = DateUtil
 
-declare namespace app {
-
-}
