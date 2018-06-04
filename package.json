@@ -1,12 +1,16 @@
 {
-  "name": "ts-tools",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "lxz-tools",
+  "version": "0.0.2",
+  "main": "dist/src/index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "ts-node test",
+    "tsc": "tsc"
+  },
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^10.1.2",
-    "tslint": "^5.10.0",
-    "typescript": "^2.8.3"
+    "@types/node": "^10.3.0",
+    "ts-node": "^6.1.0",
+    "typescript": "^2.9.1"
   }
 }
