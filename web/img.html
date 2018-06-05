@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #img {
+            position: fixed;
+            top: 10%;
+            left: 25%;
+            width: 50%;
+            height: 80%;
+            z-index: 9999;
+        }
+
+        #img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #full {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9998;
+            background-color: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+<body>
+
+<img onclick="ckimg(this)" src="http://placekitten.com/300/300">
+<div id="img" style="display: none;"></div>
+<div id="full" style="display: none;" onclick="ckfull(this)"></div>
+
+<script>
+    function ckimg(e) {
+        let img = document.querySelector('#img')
+        img.style.display = 'block'
+        img.innerHTML = '<img src="'+e.src+'" onclick="ckfull()">'
+        let full = document.querySelector('#full')
+        full.style.display = 'block'
+    }
+
+    function ckfull() {
+        let img = document.querySelector('#img')
+        let full = document.querySelector('#full')
+        img.innerHTML = ''
+        img.style.display = 'none'
+        full.style.display = 'none'
+    }
+</script>
+
+</body>
+</html>
