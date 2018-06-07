@@ -7,7 +7,9 @@
     "test": "ts-node test",
     "tsc": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "log4js": "^2.8.0"
+  },
   "devDependencies": {
     "@types/node": "^10.3.1",
     "ts-node": "^6.1.0",
