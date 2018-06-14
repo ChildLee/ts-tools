@@ -8,6 +8,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
+    "dateformat": "^3.0.3",
     "log4js": "^2.8.0"
   },
   "devDependencies": {
