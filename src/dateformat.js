@@ -67,9 +67,6 @@ dateformat.masks = {
     'time': 'HH:mm:ss'
 }
 
-// export default dateformat
-
-
 console.log(dateformat())
 console.log(dateformat('date'))
 console.log(dateformat('time'))
@@ -81,3 +78,5 @@ console.log(dateformat('YYYY年MM月DD日 HH时mm分ss秒 SSS毫秒'))
 //     console.log(dateformat('YYYY年MM月DD日 HH时mm分ss秒'))
 //     console.timeEnd('1')
 // }, 1000)
+
+// export default dateformat
