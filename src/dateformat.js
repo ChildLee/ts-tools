@@ -48,7 +48,7 @@ let dateformat = function (date, mask) {
     //处理月日时分秒
     for (let i = 1; i < len; i++) {
         arr[i].reg.test(mask) ?
-            RegExp.$1.length === 2 ?
+            RegExp.$1.length >= 2 ?
                 mask = mask.replace(RegExp.$1, ('00' + arr[i].replace).substring(String(arr[i].replace).length))
                 : mask = mask.replace(RegExp.$1, String(arr[i].replace))
             : null
@@ -57,19 +57,27 @@ let dateformat = function (date, mask) {
     arr[len].reg.test(mask) ?
         mask = mask.replace(RegExp.$1, ('000' + arr[len].replace).substring(String(arr[len].replace).length).substring(3 - RegExp.$1.length))
         : null
+
     return mask
 }
 
 dateformat.masks = {
     'default': 'YYYY-MM-DD HH:mm:ss',
-    'isoDate': 'YYYY-MM-DD',
-    'isoTime': 'HH:mm:ss'
+    'date': 'YYYY-MM-DD',
+    'time': 'HH:mm:ss'
 }
 
 // export default dateformat
 
-setInterval(function () {
-    console.time('1')
-    dateformat()
-    console.timeEnd('1')
-},1000)
+
+console.log(dateformat())
+console.log(dateformat('date'))
+console.log(dateformat('time'))
+console.log(dateformat('YYYY-MM-DD HH:mm:ss SSS'))
+console.log(dateformat('YYYY年MM月DD日 HH时mm分ss秒 SSS毫秒'))
+
+// setInterval(function () {
+//     console.time('1')
+//     console.log(dateformat('YYYY年MM月DD日 HH时mm分ss秒'))
+//     console.timeEnd('1')
+// }, 1000)
