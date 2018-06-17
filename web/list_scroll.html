@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        body, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .list_scroll {
+            border: 1px solid red;
+            height: 120px;
+        }
+
+        li {
+            height: 40px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="list_scroll">
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+        <li>5555</li>
+        <li>6666</li>
+    </ul>
+</div>
+<script>
+    let speed = 50
+    let num = 0
+    let list = document.querySelector('.list_scroll')
+    let ul = list.querySelector('ul')
+
+    function go() {
+        if (num >= 40) {
+            let li = ul.querySelector('li')
+            li.remove()
+            ul.appendChild(li)
+            num = 0
+        }
+        num++
+        ul.style.marginTop = -num + 'px'
+    }
+
+    let timer = setInterval(go, speed)
+
+    list.onmouseover = function () {
+        clearInterval(timer)
+    }
+
+    list.onmouseout = function () {
+        timer = setInterval(go, speed)
+    }
+</script>
+</body>
+</html>
