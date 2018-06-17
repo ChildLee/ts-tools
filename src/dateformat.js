@@ -68,11 +68,13 @@ dateformat.masks = {
 }
 
 console.log(dateformat())
-console.log(dateformat('date'))
-console.log(dateformat('time'))
+console.log(dateformat(Date.now()))
+console.log(dateformat(1529214419207))
+console.log(dateformat(Date.now(), 'YMDHms'))
 console.log(dateformat('YYYY-MM-DD HH:mm:ss SSS'))
 console.log(dateformat('YYYY年MM月DD日 HH时mm分ss秒 SSS毫秒'))
-
+console.log(dateformat('date'))
+console.log(dateformat('time'))
 // setInterval(function () {
 //     console.time('1')
 //     console.log(dateformat('YYYY年MM月DD日 HH时mm分ss秒'))
