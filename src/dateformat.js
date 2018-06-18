@@ -1,4 +1,4 @@
-(function (global) {
+;(function (global) {
     function dateformat(date, mask) {
 
         if (arguments.length === 1 && Object.prototype.toString.call(date) === '[object String]' && !/\d/.test(date)) {
