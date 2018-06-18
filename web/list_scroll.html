@@ -17,9 +17,10 @@
         .list_scroll {
             border: 1px solid red;
             height: 120px;
+            overflow: hidden;
         }
 
-        li {
+        li, .li {
             height: 40px;
             line-height: 40px;
         }
@@ -27,41 +28,71 @@
 </head>
 <body>
 <div class="list_scroll">
-    <ul>
-        <li>1111</li>
-        <li>2222</li>
-        <li>3333</li>
-        <li>4444</li>
-        <li>5555</li>
-        <li>6666</li>
+    <ul class="ul">
+        <li class="li">1111</li>
+        <li class="li">2222</li>
+        <li class="li">3333</li>
+        <li class="li">4444</li>
+        <li class="li">5555</li>
+        <li class="li">6666</li>
     </ul>
 </div>
+<div class="list_scroll">
+    <div class="ul">
+        <div class="li">1111</div>
+        <div class="li">2222</div>
+        <div class="li">3333</div>
+        <div class="li">4444</div>
+        <div class="li">5555</div>
+        <div class="li">6666</div>
+    </div>
+</div>
 <script>
-    let speed = 50
-    let num = 0
-    let list = document.querySelector('.list_scroll')
-    let ul = list.querySelector('ul')
+    ;(function (global) {
+        function scroll(data) {
+            var listBox = document.querySelectorAll(data.el)
+            var rowHeight = data.rowHeight || 40
+            var speed = data.speed || 40
 
-    function go() {
-        if (num >= 40) {
-            let li = ul.querySelector('li')
-            li.remove()
-            ul.appendChild(li)
-            num = 0
+            for (var i = 0, len = listBox.length; i < len; i++) {
+                single(listBox[i])
+            }
+
+            function single(list) {
+                var num = 0
+                var ul = list.querySelector('ul') || list.querySelector('.ul')
+
+                function go() {
+                    if (num >= rowHeight) {
+                        var li = ul.querySelector('li') || ul.querySelector('.li')
+                        ul.removeChild(li)
+                        ul.appendChild(li)
+                        num = 0
+                    }
+                    num++
+                    ul.style.marginTop = -num + 'px'
+                }
+
+                var timer = setInterval(go, speed)
+
+                list.onmouseover = function () {
+                    clearInterval(timer)
+                }
+
+                list.onmouseout = function () {
+                    timer = setInterval(go, speed)
+                }
+            }
         }
-        num++
-        ul.style.marginTop = -num + 'px'
-    }
 
-    let timer = setInterval(go, speed)
+        window.scroll = scroll
+    })()
 
-    list.onmouseover = function () {
-        clearInterval(timer)
-    }
-
-    list.onmouseout = function () {
-        timer = setInterval(go, speed)
-    }
+    scroll({
+        el: '.list_scroll',
+        rowHeight: 40,
+        speed: 40
+    })
 </script>
 </body>
 </html>
