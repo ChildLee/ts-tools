@@ -13,7 +13,8 @@
     "dateformat": "^3.0.3",
     "mocha": "^5.2.0",
     "sharp": "^0.20.7",
-    "time-stamp": "^2.1.0"
+    "time-stamp": "^2.1.0",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "@types/node": "^10.9.4",

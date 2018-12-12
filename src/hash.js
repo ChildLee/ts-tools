@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
 
 it('should hash', function () {
-    console.log(bcrypt.hashSync('1'))
+    console.log(bcrypt.hashSync('1').length)
 })
 
 it('should ha', function () {
